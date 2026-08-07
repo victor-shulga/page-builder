@@ -123,7 +123,8 @@ this vertical?
    every industry page.
 9. **Mark visuals:** `[INDUSTRY HERO]`, `[CONTEXT]`, `[STANDARDS]`, `[PROCESS DIFFERENCES]`,
    `[CASE CARD]`, `[QUOTE]`.
-10. **No AI tells** — no negative parallelism, no punch triads.
+10. **Run the humanisation pass** (`copy-humanisation.md`) as a separate step after the draft.
+    Negative parallelism and punch triads are hard fails at the blind judge.
 11. **Fact-check standards and figures** against the delivery lead. An invented standard costs the
     credibility of the whole page.
 

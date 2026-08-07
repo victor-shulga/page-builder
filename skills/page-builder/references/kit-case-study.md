@@ -87,7 +87,8 @@ brand assets, team photos, product screenshots?
    shipped. Never merged.
 5. **Active voice, past tense, specifics.** "Cut onboarding from four days to forty minutes", not
    "optimised processes".
-6. **No AI tells** — no negative parallelism, no punch triads.
+6. **Run the humanisation pass** (`copy-humanisation.md`) as a separate step after the draft.
+   Negative parallelism and punch triads are hard fails at the blind judge.
 7. **Under 150 words per section.** If a section does not move the sale, delete it.
 8. **At least two pull quotes** spread through the page — challenge and result — beyond the closing
    testimonial.

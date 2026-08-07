@@ -8,27 +8,45 @@ scored against the same standard every time.
 
 ## The idea in one line
 
-**A Site Blueprint is an input, not a step. Gates are stop-filters, not suggestions.**
+**A Site Blueprint is an input, not a step. Gates are stop-filters, not suggestions. Nobody grades
+their own page.**
 
-Those two rules prevent the two failures that cost the most: pages that have nowhere to live, and
-pages that ship broken because the checklist was advisory.
+Those three rules prevent the failures that cost the most: pages that have nowhere to live, pages
+that ship broken because the checklist was advisory, and pages that pass review because the person
+reviewing them knew why every compromise was made.
 
 ## What it does
 
 ```
-Intake  →  Route to Kit  →  G-A gate  →  Build  →  G-T gate  →  Scorecard  →  30/90-day review
-                             (blocks              (blocks
-                              writing)             publish)
+Intake → Route to Kit → G-A gate → Build → G-T gate → G-J blind judge → 30/90-day review
+                         (blocks             (blocks    (blocks publish
+                          writing)            publish)   below 85/100)
 ```
 
 1. **Intake** — page type, reader, intent, place in the blueprint, one conversion action, available proof.
 2. **Route** — picks the Page Kit for that type and loads only that Kit.
 3. **G-A · architecture gate** — placement, cannibalisation, inbound links, Search Console baseline.
    Runs *before* a word is written, because a duplicate page drags down the page it duplicates.
-4. **Build** — structure, then copy, search/AI visibility, UI/UX, conversion and technical passes.
+4. **Build** — structure, then copy, a separate humanisation pass, search/AI visibility, UI/UX,
+   conversion and technical passes.
 5. **G-T · technical gate** — indexation, schema, performance, analytics events verified by hand.
-6. **Scorecard** — weighted, threshold 85/100, with the losing axis named.
+6. **G-J · blind judge** — a fresh model that did not build the page scores it against the weighted
+   scorecard and returns JSON. Threshold 85/100 with an empty hard-fail list. It never sees the
+   intake reasoning or which slots were dropped and why.
 7. **Review** — 30 and 90 days against the baseline.
+
+## Two passes worth calling out
+
+**Humanisation.** Copy goes through an anti-AI-tell edit as its own step, after the draft is
+finished — not as a habit while writing, which produces cautious copy that still reads as generated.
+Negative parallelism and rule-of-three punch triads are hard fails at the judge, not style notes.
+Uses the `anticopywriting-ai` skill when installed; the shipped reference is a standalone fallback
+and the scoring rubric.
+
+**UI/UX.** Reviewed in cost-of-failure order — accessibility, touch, performance, layout, type,
+motion — with one rule above all of them: the client's design system decides tokens and outranks any
+generic recommendation. Uses the `ui-ux-pro-max` skill when installed, for the open decisions only;
+it never repaints the client's palette.
 
 ## The Page Kits
 
@@ -82,8 +100,12 @@ producing an orphan page.
   flagged as missing.
 - **Silently substitute a Kit.** If a page type has no dedicated Kit, it says which Kit it is
   building from.
-- **Ship past a gate.** A page that fails G-A or G-T goes back; it does not proceed with a note in
-  the margin.
+- **Ship past a gate.** A page that fails G-A, G-T or G-J goes back; it does not proceed with a note
+  in the margin.
+- **Grade its own work.** The score comes from a model that did not write the page and does not know
+  the reasoning behind it. Publishing below 85 without saying so is forbidden.
+- **Override the client's design system.** Recommendations fill the gaps the tokens do not cover;
+  they never replace the palette, the type or the brand marks.
 - **Rewrite your homepage messaging.** That is a positioning job, not a page job.
 
 ## Repo layout
@@ -97,8 +119,19 @@ skills/page-builder/
     kit-industry-page.md            G-I gate + 60% rule + 15 slots
     kit-case-study.md               12 sections + SME questionnaire
     kit-blog-page.md                17 elements, built for AI search
-    gates-and-scorecard.md          G-I / G-A / G-T + two weighted scorecards
+    copy-humanisation.md            anti-AI-tell pass + Human copy scoring rubric
+    ux-pass.md                      accessibility-first UI/UX review + design-system precedence
+    gates-and-scorecard.md          G-I / G-A / G-T / G-J + two weighted scorecards
 ```
+
+## Optional companion skills
+
+Both are detected, not required. Without them the shipped references carry standalone checklists.
+
+| Skill | Used for | Install |
+|---|---|---|
+| `anticopywriting-ai` | the humanisation pass | Victor Shulga's skill set |
+| `ui-ux-pro-max` | the UI/UX review and open layout decisions | `npx uipro-cli init --ai claude` |
 
 ## Author
 

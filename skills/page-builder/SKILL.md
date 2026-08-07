@@ -4,9 +4,9 @@ description: >-
   Production line for website pages of a B2B service business (agency, outsourcing, consulting).
   Takes ONE page request — a service page, an industry/vertical page, a case study, a blog article,
   a landing page — and runs it end to end: picks the right Page Kit for that page type, enforces the
-  architecture gate BEFORE a word is written, drafts the structure, runs copy, search/AI visibility,
-  UI/UX, conversion and technical passes, then scores the page on a weighted scorecard and enforces
-  the technical gate before publish.
+  architecture gate BEFORE a word is written, drafts the structure, runs copy, humanisation,
+  search/AI visibility, UI/UX, conversion and technical passes, enforces the technical gate, then
+  has a blind judge score the page on a weighted scorecard before publish.
   Use whenever someone says: "build a service page", "write the page for [service]", "we need an
   industry page for [vertical]", "make a page for our website", "rewrite this page", "add a page to
   the site", "напиши сторінку послуги", "зроби сторінку під галузь", "сторінка на сайт". Also use when
@@ -25,8 +25,9 @@ Two rules that carry the whole thing:
 1. **A Site Blueprint is an input, not a step.** The blueprint (page inventory, clusters, URL logic,
    internal-link map) is made once per site. A page cannot be placed inside an architecture that does
    not exist. No blueprint → stop and produce the blueprint first.
-2. **Gates are stop-filters, not suggestions.** G-A blocks writing. G-T blocks publishing. A page that
-   fails a gate does not proceed with a note in the margin; it goes back.
+2. **Gates are stop-filters, not suggestions.** G-A blocks writing. G-T blocks publishing. G-J — a
+   blind judge that did not build the page — blocks it again on quality. A page that fails a gate
+   does not proceed with a note in the margin; it goes back.
 
 ---
 
@@ -67,6 +68,10 @@ Read `references/page-types.md` and pick the Kit. Load only that Kit file.
 
 Never silently substitute a Kit. If the requested type has no Kit, name the substitution.
 
+Three references are not Kits and apply to every page type, loaded at the phase that needs them:
+`references/copy-humanisation.md` (Phase 3, pass 2b), `references/ux-pass.md` (Phase 3, pass 4),
+`references/gates-and-scorecard.md` (Phases 2, 4 and 5).
+
 ---
 
 ## Phase 2 — G-A · Architecture gate (BEFORE the first word)
@@ -95,17 +100,30 @@ and the reason gets recorded. Mark visual placeholders inline (`[HERO]`, `[PROCE
 
 **2. Copy.** Written in the reader's vocabulary, taken from real calls and emails. Nouns for
 deliverables, numbers for claims. Every differentiator carries proof — a figure, a standard, a named
-certification, a linked case. A differentiator without proof is deleted, not softened. Strip AI
-tells: no negative parallelism ("not X, but Y"), no rule-of-three punch triads, no filler
-intensifiers.
+certification, a linked case. A differentiator without proof is deleted, not softened.
+
+**2b. Humanisation — a separate pass, mandatory.** When the draft is finished, run it through
+`references/copy-humanisation.md` as its own editing pass. Do not fold this into writing; a drafter
+policing their own tells does neither job well. If the `anticopywriting-ai` skill is installed,
+invoke it here and let it run its detect → rewrite → self-check → final loop; otherwise use the
+checklist in the reference. Either way the pass ends with the honest question "what here still reads
+as machine-written?" and a second round of fixes. Copy that never went through this pass does not
+proceed to Phase 4.
 
 **3. Search and AI visibility.** Primary query in H1 and the first 100 words. One H1, no skipped
 heading levels. FAQ block built from real objections, phrased the way a human asks. Comparison tables
 where the topic allows — structured data is what AI search quotes. Schema per the Kit. Clean URL.
 
-**4. UI/UX.** The client's design system, never a generic theme. Scannable in 60 seconds. Mobile
-first: most traffic is a phone. Contrast and focus states pass accessibility. Tables and diagrams
-scroll inside their own container.
+**4. UI/UX.** Run `references/ux-pass.md`. The client's design system decides tokens — colours,
+type, spacing, radius — and it outranks any generic recommendation. Everything else is reviewed in
+priority order: accessibility, then touch and interaction, then performance, then layout, then
+typography and colour, then motion. Scannable in 60 seconds. Mobile first, because most traffic is a
+phone. Tables and diagrams scroll inside their own container.
+
+If the `ui-ux-pro-max` skill is installed, use it for the review and for layout and component
+decisions the design system does not cover — but never let it repaint the client's palette or swap
+their fonts. The reference explains the split and carries a standalone checklist for when the skill
+is absent.
 
 **5. Conversion.** One primary action, visible without scrolling. Inline actions contextual to their
 section. A soft alternative for readers not ready to talk — a checklist, a sample of work, a
@@ -126,13 +144,31 @@ weight controlled.
 
 ---
 
-## Phase 5 — Scorecard
+## Phase 5 — G-J · Blind judge
 
-Score the page out of 100 using the weights in `references/gates-and-scorecard.md`. Threshold **85**.
-Below threshold, return to the axis that lost points; do not average the failure away.
+The page is scored by a **fresh model that did not build it**, against the weighted scorecard in
+`references/gates-and-scorecard.md`. Threshold **85 / 100**. The builder never marks its own work up.
 
-Report the score as a table with the points lost and why. A scorecard that always returns 95 is not
-measuring anything.
+1. **Spawn a blind judge** — a separate subagent with a clean context. Give it only:
+   the page draft, the page type, the Kit's slot list, the scorecard, and a plain fact sheet for the
+   things it cannot see (final URL, canonical, schema types present, measured performance, whether
+   analytics events were verified by hand).
+   **Do not give it** the intake reasoning, the gate justifications, which slots were dropped and
+   why, or your own view of how the page turned out. Blind means blind — the dropped-slot excuse is
+   exactly what a self-scorer uses to mark itself up.
+2. **It returns only JSON**, no prose:
+   `{"scores": {<axis>: int}, "total": int, "hard_fails": [...], "lowest": "<axis>",
+   "one_fix": "<one concrete edit>"}` — axes and weights taken from the scorecard, scored harshly.
+3. **Gate = `total ≥ 85` AND `hard_fails` empty.** The hard-fail list is in the reference.
+4. **Not taken →** fix every `hard_fail` first, then apply `one_fix` to the `lowest` axis, then
+   **rescore with a NEW subagent**. Never re-ask the same judge; a judge that has seen its own note
+   applied grades the note, not the page.
+5. **Stop after 3 rounds.** Still short → hand the page over flagged
+   "gate not taken — X/85, weakest axis = <axis>" and let the author decide.
+   **Silent publishing below 85 is forbidden.**
+
+Report the final score as a table with the points lost and why. A scorecard that always returns 95
+measures nothing.
 
 ---
 
@@ -158,3 +194,9 @@ enquiries attributed to the page, scroll depth.
   "expensive and evasive" and loses the reader before they reach the form.
 - **Say what you skipped.** If a section was dropped for missing input, state it in the handover
   rather than quietly shipping a thinner page.
+- **Never grade your own page.** The score at Phase 5 comes from a model that did not write the copy
+  and does not know the reasoning behind it. Self-assessment on a page you just built is not a
+  measurement, it is a mood.
+- **Humanisation is a pass, not a habit.** Copy goes through the anti-AI-tell edit as its own step,
+  after the draft is finished. Watching for tells while drafting produces cautious copy that still
+  reads as generated.

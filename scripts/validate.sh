@@ -25,7 +25,7 @@ done < <(find "$root/skills" -name SKILL.md)
 [ "$found" -eq 1 ] || err "no skills/*/SKILL.md found"
 
 # every Page Kit referenced by the pipeline must ship
-for ref in page-types kit-service-page kit-industry-page kit-case-study kit-blog-page gates-and-scorecard; do
+for ref in page-types kit-service-page kit-industry-page kit-case-study kit-blog-page gates-and-scorecard copy-humanisation ux-pass; do
   [ -f "$root/skills/page-builder/references/$ref.md" ] \
     && ok "reference $ref.md" || err "missing skills/page-builder/references/$ref.md"
 done

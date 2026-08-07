@@ -1,7 +1,7 @@
 {
   "name": "page-builder",
   "metadata": {
-    "description": "Production line for B2B service-business website pages: route to a Page Kit, gate the architecture before writing, build, gate the technical layer before publish, score out of 100."
+    "description": "Production line for B2B service-business website pages: route to a Page Kit, gate the architecture before writing, build, gate the technical layer before publish, then have a blind judge score it out of 100."
   },
   "owner": {
     "name": "Victor Shulga",
@@ -11,8 +11,8 @@
     {
       "name": "page-builder",
       "source": "./",
-      "description": "One page request in, one publish-ready page out. Four Page Kits (service, industry, case study, blog), a registry of ~25 page types, an architecture gate that runs before writing, a technical gate before publish, and weighted scorecards with a threshold of 85. Industry pages carry a go/no-go gate plus a 60% uniqueness rule.",
-      "version": "0.1.0",
+      "description": "One page request in, one publish-ready page out. Four Page Kits (service, industry, case study, blog), a registry of ~25 page types, an architecture gate that runs before writing, a separate anti-AI-tell humanisation pass, an accessibility-first UI/UX pass, a technical gate before publish, and a blind judge that scores the page against weighted scorecards with a threshold of 85. Industry pages carry a go/no-go gate plus a 60% uniqueness rule.",
+      "version": "0.2.0",
       "keywords": ["website", "seo", "aeo", "service-page", "case-study", "blog", "cro", "b2b"],
       "author": {
         "name": "Victor Shulga"

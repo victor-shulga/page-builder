@@ -66,7 +66,8 @@ tying the author to content across the site, clean URL.
    strengthens its neighbours.
 8. **Primary query** in H1 and the first 100 words. No stuffing.
 9. **Mark visuals in the draft:** `[COVER]`, `[AUTHOR CARD]`, `[TABLE]`, `[QUOTE]`, `[VIDEO]`.
-10. **No AI tells** — no negative parallelism, no punch triads.
+10. **Run the humanisation pass** (`copy-humanisation.md`) as a separate step after the draft.
+    Negative parallelism and punch triads are hard fails at the blind judge.
 11. **Set `Updated: [date]`** and refresh it on every substantive edit. It is a real freshness signal,
     not decoration.
 

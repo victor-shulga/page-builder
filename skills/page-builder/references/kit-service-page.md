@@ -114,8 +114,9 @@ work screenshots?
 9. **Internal links:** 2–3 cases from this service, 2 related services, 1–2 articles.
 10. **Mark visuals in the draft:** `[HERO]`, `[TRUST STRIP]`, `[PROCESS]`, `[MODELS TABLE]`,
     `[CASE CARD]`, `[TEAM]`, `[QUOTE]`.
-11. **No AI tells.** No negative parallelism ("not X, but Y"), no rule-of-three punch triads, no
-    hollow intensifiers.
+11. **Run the humanisation pass** (`copy-humanisation.md`) as a separate step once the draft is
+    finished, not while writing. Negative parallelism ("not X, but Y") and rule-of-three punch
+    triads are hard fails at the blind judge, not style preferences.
 12. **Fact-check** every number, name, certification and price against the delivery lead's answers
     before handover.
 
