@@ -18,9 +18,9 @@ reviewing them knew why every compromise was made.
 ## What it does
 
 ```
-Intake → Route to Kit → G-A gate → Build → G-T gate → G-J blind judge → 30/90-day review
-                         (blocks             (blocks    (blocks publish
-                          writing)            publish)   below 85/100)
+Intake → Route to Kit → G-A gate → Build → G-T gate → G-J blind judge → Handoff → 30/90-day review
+                         (blocks             (blocks    (blocks publish     (when someone
+                          writing)            publish)   below 85/100)       else finishes it)
 ```
 
 1. **Intake** — page type, reader, intent, place in the blueprint, one conversion action, available proof.
@@ -33,7 +33,10 @@ Intake → Route to Kit → G-A gate → Build → G-T gate → G-J blind judge 
 6. **G-J · blind judge** — a fresh model that did not build the page scores it against the weighted
    scorecard and returns JSON. Threshold 85/100 with an empty hard-fail list. It never sees the
    intake reasoning or which slots were dropped and why.
-7. **Review** — 30 and 90 days against the baseline.
+7. **Handoff** — only when another team finishes or publishes the page: the page, a README, a
+   blockers-first TODO, the CMS split and the assets, with every unfinished thing visibly
+   unfinished. See `references/handoff-kit.md`.
+8. **Review** — 30 and 90 days against the baseline.
 
 ## Two passes worth calling out
 
@@ -62,6 +65,15 @@ technical checklist, a designer brief and a pre-launch checklist.
 
 `references/page-types.md` maps ~25 page types to Kits and to funnel stage, and gives the rules for
 planning which pages a site should have at all.
+
+## Handoff
+
+Most pages leave the line half-finished on purpose: proof is missing, checkout is not wired, the
+client's team will move it into their own CMS. `references/handoff-kit.md` makes that state honest
+instead of a pile of files in a chat — one searchable placeholder pattern in the markup mirrored by
+a blockers-first TODO, a page that degrades gracefully when commerce is not wired yet, and a CMS
+split (markup / CSS / JS / template) that you render and compare before sending. Invented names,
+faces and testimonials never ship, not even as filler.
 
 ## Install
 
@@ -122,6 +134,7 @@ skills/page-builder/
     copy-humanisation.md            anti-AI-tell pass + Human copy scoring rubric
     ux-pass.md                      accessibility-first UI/UX review + design-system precedence
     gates-and-scorecard.md          G-I / G-A / G-T / G-J + two weighted scorecards
+    handoff-kit.md                  handing the page to the team that finishes it
 ```
 
 ## Optional companion skills

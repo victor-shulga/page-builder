@@ -172,7 +172,29 @@ measures nothing.
 
 ---
 
-## Phase 6 — Post-launch review
+## Phase 6 — Handoff (only when someone else finishes or publishes the page)
+
+Skip this when you publish the page yourself. Run it whenever the page goes to another team: the
+client's marketer, their in-house developer, another agency.
+
+Ship five things — page, `README.md`, `TODO.md`, the CMS split, the assets folder — per
+`references/handoff-kit.md`. The rules that matter:
+
+- **Unfinished stays visibly unfinished.** One searchable pattern (`[PLACEHOLDER]`, `[Client name]`)
+  in the markup, and the same list in `TODO.md`. Plausible filler that looks finished never gets
+  replaced.
+- **Blockers first.** `TODO.md` opens with what stops launch, then placeholders, then claims the
+  client must confirm, then nice-to-have. Conflicting numbers in the source material go in the list
+  as a conflict — you do not silently pick one.
+- **Degrade gracefully.** If commerce or tracking is not wired yet, the page still works: an empty
+  checkout link falls back to the enquiry form rather than a dead button.
+- **Render the CMS split before sending it.** Same height, same sections, clean console. An
+  unrendered split is a guess.
+- **Say what you skipped**, in writing, in the README — same rule as everywhere else in this skill.
+
+---
+
+## Phase 7 — Post-launch review
 
 Schedule 30-day and 90-day reviews against the baseline: impressions and position in Search Console,
 enquiries attributed to the page, scroll depth.

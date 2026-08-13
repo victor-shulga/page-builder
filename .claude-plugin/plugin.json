@@ -1,6 +1,6 @@
 {
   "name": "page-builder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A production line for website pages of a B2B service business. Takes one page request — service page, industry/vertical page, case study, blog article, landing page — and runs it end to end: routes to the right Page Kit, enforces an architecture gate before a word is written (placement, cannibalisation, inbound links, Search Console baseline), builds structure then copy, a separate anti-AI-tell humanisation pass, search/AI visibility, an accessibility-first UI/UX pass, conversion and technical passes, enforces a technical gate before publish, then has a blind judge that did not build the page score it on a weighted scorecard with a threshold of 85. Ships four full Page Kits (service, industry, case study, blog), a registry of ~25 page types mapped to funnel stage, the humanisation and UI/UX pass references, and the gate/scorecard definitions. Industry pages carry an extra go/no-go gate and a 60% uniqueness rule that prevents self-cannibalisation.",
   "author": {
     "name": "Victor Shulga",

@@ -12,7 +12,7 @@
       "name": "page-builder",
       "source": "./",
       "description": "One page request in, one publish-ready page out. Four Page Kits (service, industry, case study, blog), a registry of ~25 page types, an architecture gate that runs before writing, a separate anti-AI-tell humanisation pass, an accessibility-first UI/UX pass, a technical gate before publish, and a blind judge that scores the page against weighted scorecards with a threshold of 85. Industry pages carry a go/no-go gate plus a 60% uniqueness rule.",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "keywords": ["website", "seo", "aeo", "service-page", "case-study", "blog", "cro", "b2b"],
       "author": {
         "name": "Victor Shulga"
