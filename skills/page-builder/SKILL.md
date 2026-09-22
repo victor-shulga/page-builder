@@ -1,19 +1,17 @@
 ---
 name: page-builder
 description: >-
-  Production line for website pages of a B2B service business (agency, outsourcing, consulting).
-  Takes ONE page request — a service page, an industry/vertical page, a case study, a blog article,
-  a landing page — and runs it end to end: picks the right Page Kit for that page type, enforces the
-  architecture gate BEFORE a word is written, drafts the structure, runs copy, humanisation,
-  search/AI visibility, UI/UX, conversion and technical passes, enforces the technical gate, then
-  has a blind judge score the page on a weighted scorecard before publish.
-  Use whenever someone says: "build a service page", "write the page for [service]", "we need an
-  industry page for [vertical]", "make a page for our website", "rewrite this page", "add a page to
-  the site", "напиши сторінку послуги", "зроби сторінку під галузь", "сторінка на сайт". Also use when
-  auditing an existing page against the standard, or when planning which pages a site should have.
-  Do NOT use for the homepage messaging rewrite from scratch (that is a positioning job) or for social
-  posts. This skill assumes a Site Blueprint exists; if it does not, it stops and says so.
----
+  Production line for website pages of a B2B service business (agency, outsourcing, consulting). Takes
+  ONE page request (service page, industry page, case study, blog article, landing page) and runs it
+  end to end: picks the Page Kit for that type, enforces the architecture gate before a word is
+  written, drafts the structure, runs copy, humanisation, search/AI visibility, UI/UX, conversion and
+  technical passes, enforces the technical gate, then has a blind judge score the page before publish.
+  Use whenever someone says: "build a service page", "write the page for [service]", "industry page
+  for [vertical]", "make a page for our website", "rewrite this page", "add a page to the site",
+  "напиши сторінку послуги", "зроби сторінку під галузь", "сторінка на сайт"; also for auditing an
+  existing page or planning which pages a site needs. NOT for a homepage messaging rewrite from
+  scratch (positioning job) or social posts. Assumes a Site Blueprint exists; if not, it stops and
+  says so.---
 
 # page-builder — the website page production line
 
