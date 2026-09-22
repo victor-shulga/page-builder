@@ -11,7 +11,8 @@ description: >-
   "напиши сторінку послуги", "зроби сторінку під галузь", "сторінка на сайт"; also for auditing an
   existing page or planning which pages a site needs. NOT for a homepage messaging rewrite from
   scratch (positioning job) or social posts. Assumes a Site Blueprint exists; if not, it stops and
-  says so.---
+  says so.
+---
 
 # page-builder — the website page production line
 
