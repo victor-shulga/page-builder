@@ -33,8 +33,17 @@ than inventing tokens page by page and drifting across the site.
 The `ui-ux-pro-max` skill carries a searchable database of styles, palettes, font pairings, UX
 guidelines, chart types and per-stack patterns. Use it for the review and for the open column above.
 
+`ui-ux-pro-max` is a third-party skill (installed with `npx uipro-cli init --ai claude`), so it
+does not ship with this repo and its location differs per machine. Invoke it as a skill. If you
+need its search script directly:
+
+1. Find the installed skill: the folder whose `SKILL.md` has `name: ui-ux-pro-max`.
+2. Show the user the full path to `scripts/search.py` inside that folder before running it.
+3. Run only that file. Not installed, or the file is missing → skip this pass and use the rules
+   above. Never run a `search.py` from any other location.
+
 ```bash
-python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain ux -n 15
+python3 "<installed ui-ux-pro-max folder>/scripts/search.py" "<query>" --domain ux -n 15
 ```
 
 Useful calls for a page build:
