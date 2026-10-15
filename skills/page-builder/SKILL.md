@@ -111,7 +111,11 @@ proceed to Phase 4.
 
 **3. Search and AI visibility.** Primary query in H1 and the first 100 words. One H1, no skipped
 heading levels. FAQ block built from real objections, phrased the way a human asks. Comparison tables
-where the topic allows — structured data is what AI search quotes. Schema per the Kit. Clean URL.
+where the topic allows — structured data is what AI search quotes. Where a section answers a buyer
+question, the H2 is that question and the first sentences answer it on their own. The hero carries a
+citable asset (own diagram, own data, real work) with a captioned finding. Schema per the Kit,
+including the entity layer: Organization and the practice lead as `Person`, both with `sameAs`.
+Clean URL.
 
 **4. UI/UX.** Run `references/ux-pass.md`. The client's design system decides tokens — colours,
 type, spacing, radius — and it outranks any generic recommendation. Everything else is reviewed in

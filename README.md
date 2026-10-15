@@ -58,7 +58,7 @@ technical checklist, a designer brief and a pre-launch checklist.
 
 | Kit | Builds | Distinctive rule |
 |---|---|---|
-| **Service Page** | The page that turns traffic into an enquiry | 16 slots. The boundary ("what's *not* included") and a price — at least a range — are mandatory |
+| **Service Page** | The page that turns traffic into an enquiry | 16 slots. The boundary ("what's *not* included") and a price — at least a range, anchored to the cost of the problem — are mandatory. AI-visibility layer: question-shaped H2s, a citable hero asset, Organization/Person entities |
 | **Industry Page** | The same service in one vertical's language | Opens with **G-I**: no page at all without 2 cases from that vertical, plus the **60% uniqueness rule** |
 | **Case Study** | One project, one number, one narrative | No number in the headline means the case is not ready |
 | **Blog Page** | Articles, guides, comparisons, hubs | Built for AI search: TL;DR, comparison tables, FAQ schema, visible updated date |

@@ -126,9 +126,9 @@ Threshold **85 / 100**. Below it, return to the axis that lost points. Do not av
 | Axis | Weight | What is checked |
 |---|---|---|
 | Conversion | 20 | one action, soft alternative, short form, events working |
-| Offer clarity | 15 | what's included, the boundary, process, price, buyer's language |
+| Offer clarity | 15 | what's included, the boundary, process, price anchored to the cost of the problem, buyer's language |
 | Structure | 15 | every Kit slot present or deliberately dropped |
-| Search and AI visibility | 15 | queries, FAQ, schema, quotable blocks |
+| Search and AI visibility | 15 | queries, question-shaped H2s with answer-first openers, citable asset, FAQ, schema with Organization/Person entities |
 | Human copy | 10 | no AI tells, varied rhythm, an opinion and a boundary present |
 | Proof | 10 | cases from this service, figures, quote, team |
 | Design and UX | 10 | client design system, mobile, hierarchy, accessibility |
@@ -148,7 +148,7 @@ Different weights: the risks here are duplication and unproven belonging, not of
 | Conversion | 15 | one action, industry magnet, form, events |
 | Copy in the industry's language | 10 | buyer's terms, verbatim pains |
 | Human copy | 10 | no AI tells, varied rhythm, an opinion and a boundary present |
-| Search and AI visibility | 10 | industry-name queries, FAQ, schema |
+| Search and AI visibility | 10 | industry-name queries, question-shaped H2s with answer-first openers, FAQ, schema |
 | Place in the cluster | 10 | link up and down, sibling block, breadcrumbs |
 | Design and technical layer | 5 | design system, mobile, performance, indexation |
 
@@ -162,6 +162,24 @@ Full rubric and the tell list are in `copy-humanisation.md`.
 | 6–8 | One or two isolated tells, or clean but flat — no opinion, uniform rhythm. |
 | 3–5 | Tells recur across sections, or the page reads as a filled template. |
 | 0–2 | Negative parallelism or punch triads present, brochure adjectives throughout. Hard fail. |
+
+## Scoring the Search and AI visibility axis (service and landing pages)
+
+Fifteen points, five checks. Each one is worth the points shown; award partial credit when a check is
+met on some sections and missed on others.
+
+| Points | Check |
+|---|---|
+| 3 | Primary query in the H1 and the first 100 words; one H1, no skipped heading levels |
+| 4 | Where a section answers a buyer question, its H2 is that question, and the first one or two sentences answer it on their own, with the number when there is one |
+| 3 | Hero carries a citable asset (method diagram, own-data chart, short work video) with a caption stating the finding and its source; stock imagery scores 0 here |
+| 3 | FAQ built from real objections, with FAQPage schema |
+| 2 | Entity layer: Organization with `@id` and `sameAs`, practice-lead `Person` with `sameAs`, `Service.provider` pointing at the Organization |
+
+## Scoring the price anchor (inside Offer clarity)
+
+A price with no anchor loses 2 of the 15 Offer clarity points. An anchor figure that cannot be traced
+to the intake or a named benchmark is an untraceable figure, which is a hard fail.
 
 ## How to score honestly
 
