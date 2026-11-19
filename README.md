@@ -48,8 +48,7 @@ and the scoring rubric.
 
 **UI/UX.** Reviewed in cost-of-failure order — accessibility, touch, performance, layout, type,
 motion — with one rule above all of them: the client's design system decides tokens and outranks any
-generic recommendation. Uses the `ui-ux-pro-max` skill when installed, for the open decisions only;
-it never repaints the client's palette.
+generic recommendation. The full checklist ships in `references/ux-pass.md`; no extra skill needed.
 
 ## The Page Kits
 
@@ -137,14 +136,13 @@ skills/page-builder/
     handoff-kit.md                  handing the page to the team that finishes it
 ```
 
-## Optional companion skills
+## Optional companion skill
 
-Both are detected, not required. Without them the shipped references carry standalone checklists.
+Detected, not required. Without it the shipped references carry a standalone checklist.
 
 | Skill | Used for | Install |
 |---|---|---|
 | `anticopywriting-ai` | the humanisation pass | Victor Shulga's skill set |
-| `ui-ux-pro-max` | the UI/UX review and open layout decisions | `npx uipro-cli init --ai claude` |
 
 ## Author
 

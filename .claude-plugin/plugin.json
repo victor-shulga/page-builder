@@ -1,6 +1,6 @@
 {
   "name": "page-builder",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A production line for website pages of a B2B service business: service, industry, case study, blog and landing pages. Runs an architecture gate before writing, then structure, copy, a humanisation pass, search and AI visibility, UI/UX, conversion and technical passes, and a technical gate before publish. A blind judge scores the page (threshold 85). Ships four Page Kits, a registry of ~25 page types by funnel stage, and the gate and scorecard definitions.",
   "author": {
     "name": "Victor Shulga",

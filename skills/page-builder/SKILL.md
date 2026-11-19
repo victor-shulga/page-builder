@@ -135,10 +135,8 @@ priority order: accessibility, then touch and interaction, then performance, the
 typography and colour, then motion. Scannable in 60 seconds. Mobile first, because most traffic is a
 phone. Tables and diagrams scroll inside their own container.
 
-If the `ui-ux-pro-max` skill is installed, use it for the review and for layout and component
-decisions the design system does not cover — but never let it repaint the client's palette or swap
-their fonts. The reference explains the split and carries a standalone checklist for when the skill
-is absent.
+The reference carries the full checklist and the split between what the design system decides and
+what this pass decides. No other skill is needed for it.
 
 **5. Conversion.** One primary action, visible without scrolling. Inline actions contextual to their
 section. A soft alternative for readers not ready to talk — a checklist, a sample of work, a

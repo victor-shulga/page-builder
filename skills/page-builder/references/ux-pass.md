@@ -13,7 +13,7 @@ a live style guide. A generic recommendation never overrides them, however good 
 isolation. A page that is beautiful and off-brand has failed, because the reader's first judgement is
 "is this the same company I was just talking to".
 
-What is genuinely open, and what this pass decides:
+What is genuinely open, and what this pass decides (the checklist below is the whole pass):
 
 | Decided by the design system | Decided by this pass |
 |---|---|
@@ -25,43 +25,6 @@ What is genuinely open, and what this pass decides:
 
 If the client has no design system, say so in the handover and build one before the page, rather
 than inventing tokens page by page and drifting across the site.
-
----
-
-## Using `ui-ux-pro-max` when it is installed
-
-The `ui-ux-pro-max` skill carries a searchable database of styles, palettes, font pairings, UX
-guidelines, chart types and per-stack patterns. Use it for the review and for the open column above.
-
-`ui-ux-pro-max` is a third-party skill (installed with `npx uipro-cli init --ai claude`), so it
-does not ship with this repo and its location differs per machine. Invoke it as a skill. If you
-need its search script directly:
-
-1. Find the installed skill: the folder whose `SKILL.md` has `name: ui-ux-pro-max`.
-2. Show the user the full path to `scripts/search.py` inside that folder before running it.
-3. Run only that file. Not installed, or the file is missing → skip this pass and use the rules
-   above. Never run a `search.py` from any other location.
-
-```bash
-python3 "<installed ui-ux-pro-max folder>/scripts/search.py" "<query>" --domain ux -n 15
-```
-
-Useful calls for a page build:
-
-| Need | Call |
-|---|---|
-| UX review rules | `--domain ux "accessibility forms navigation"` |
-| Landing structure patterns | `--domain landing "hero social-proof pricing"` |
-| Stack-specific patterns | `--stack html-tailwind "layout responsive form"` |
-| Chart choice for a data block | `--domain chart "comparison over time"` |
-
-**Do not** run it with `--design-system` on a page for a client who already has one. That flag
-generates a fresh palette and type pairing, which is precisely what the design system already
-answers. Reserve it for a client with no tokens at all, and even then treat the output as a starting
-proposal, not a decision.
-
-If the skill is not installed, the checklist below is the pass. Install with
-`npx uipro-cli init --ai claude` if you want the database.
 
 ---
 
